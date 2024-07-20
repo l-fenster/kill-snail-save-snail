@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Kill the Snail, Save the Snail</title>
+  </head>
+  <body>
+    <main>
+      <!--this will be the initial screen shown-->
+      <div id="game-intro">
+        <h1>Kill the Snail, Save the Snail</h1>
+        <br />
+        <button id="start-button">Start Game</button>
+      </div>
+
+      <!--this will be an instructions page, shows after initial screen-->
+      <div id="instructions-page">
+        <div id="instructions">
+          <!--at the bottom of instructions, snail asks if you want to play or not-->
+          <div id="speech-bubble">
+            <button id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+          </div>
+        </div>
+      </div>
+
+      <!--this will be the game screen-->
+      <div id="game-container">
+        <div id="game-screen">
+          <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
+          <div id="primary-elements">
+            <button id="element-a"></button>
+            <button id="element-b"></button>
+            <button id="element-c"></button>
+          </div>
+          <div id="secondary-elements">
+            <button id="element-ab"></button>
+            <button id="element-bc"></button>
+            <button id="element-ac"></button>
+          </div>
+          <div id="tertiary-elements">
+            <!--this is where the three-element combos will go-->
+          </div>
+          <div id="timer-and-health-box">
+            <div id="health-bar"></div>
+            <div id="game-timer"></div>
+            <div id="turn-timer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!--this will be the end screen if the snail dies-->
+      <div id="dead-end">
+        <h1>Game Over</h1>
+        <p>The Snail Died.</p>
+        <br />
+        <button id="dead-restart-button">Restart Game</button>
+      </div>
+
+      <!--this will be the end screen if the snail lives-->
+      <div id="live-end">
+        <h1>End Game</h1>
+        <p>You Saved the Snail!</p>
+        <div id="final-score">
+          <div id="hearts-saved"></div>
+        </div>
+        <br />
+        <button id="live-restart-button">Restart Game</button>
+      </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

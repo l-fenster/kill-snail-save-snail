@@ -4,12 +4,27 @@ window.onload = function () {
   const noButton = document.getElementById("no-button");
 
   let game;
+  let instructions;
 
   startButton.addEventListener("click", startButtonHandler);
 
   function startButtonHandler() {
     game = new Game();
     game.startIntro();
+  }
+
+  yesButton.addEventListener("click", yesButtonHandler);
+
+  function yesButtonHandler() {
+    instructions = new Instructions();
+    instructions.reallyStartGame();
+  }
+
+  noButton.addEventListener("click", noButtonHandler);
+
+  function noButtonHandler() {
+    instructions = new Instructions();
+    instructions.automaticEnd();
   }
 };
 

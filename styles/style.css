@@ -1,0 +1,27 @@
+body {
+  /*this needs to be fixed...*/
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+#game-intro {
+  padding: 20px 0px;
+}
+
+#instructions-page {
+  display: none;
+}
+
+#game-screen {
+  display: none;
+}
+
+#dead-end {
+  display: none;
+}
+
+#live-end {
+  display: none;
+}

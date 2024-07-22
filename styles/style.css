@@ -1,5 +1,5 @@
 body {
-  background-image: url(../images/slime1.jpeg);
+  background-image: url(../images/snails6.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
@@ -28,7 +28,7 @@ body {
   background-size: cover;
 }
 
-#game-screen {
+#game-container {
   display: none;
   align-content: center;
   padding: 200px 0px;

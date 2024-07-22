@@ -4,7 +4,6 @@ window.onload = function () {
   const noButton = document.getElementById("no-button");
 
   let game;
-  let instructions;
 
   startButton.addEventListener("click", startButtonHandler);
 
@@ -16,16 +15,18 @@ window.onload = function () {
   yesButton.addEventListener("click", yesButtonHandler);
 
   function yesButtonHandler() {
-    instructions = new Instructions();
+    instructions = new Game();
     instructions.reallyStartGame();
   }
 
   noButton.addEventListener("click", noButtonHandler);
 
   function noButtonHandler() {
-    instructions = new Instructions();
+    instructions = new Game();
     instructions.automaticEnd();
   }
+
+  let deadEndPage = document.getElement;
 };
 
 /*

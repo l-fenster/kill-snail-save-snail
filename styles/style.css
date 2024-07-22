@@ -1,27 +1,65 @@
 body {
-  /*this needs to be fixed...*/
-  background-image: url(../images/notebook-page.jpg);
+  background-image: url(../images/snails6.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
 }
 
 #game-intro {
-  padding: 20px 0px;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
 }
 
 #instructions-page {
   display: none;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
 }
 
-#game-screen {
+#game-container {
   display: none;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
 }
 
 #dead-end {
   display: none;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
 }
 
 #live-end {
   display: none;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/notebook-page.jpg);
+  background-size: cover;
 }

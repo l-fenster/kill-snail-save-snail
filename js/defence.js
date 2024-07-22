@@ -14,5 +14,21 @@ class Defence {
       "Gun",
       "Spear",
     ];
+    this.fire = document.getElementById("element-a");
+    this.water = document.getElementById("element-b");
+    this.rock = document.getElementById("element-c");
+    this.metal = document.getElementById("element-ab");
+    this.mist = document.getElementById("element-bc");
+    this.tree = document.getElementById("element-ac");
+  }
+  makeMetal(element) {
+    this.element.classList.add("show");
+  }
+  onDragStart(event) {
+    event.dataTransfer;
+    event.setData("plain/text", event.target.id);
+    event.currentTarget;
+    event.style;
+    event.backgroundColor = "yellow";
   }
 }

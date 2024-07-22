@@ -17,4 +17,19 @@ class Game {
     this.instructionsPage.style.display = "none";
     this.deadEndPage.style.display = "block";
   }
+  createIntroSound() {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "audio");
+    this.sound.setAttribute("controls", "loop");
+    this.sound.style.display = none;
+    document.body.appendChild(this.sound);
+    this.play = function () {
+      this.sound.play();
+    };
+    this.stop = function () {
+      this.sound.pause;
+    };
+    return this.sound;
+  }
 }

@@ -1,17 +1,12 @@
 class Attacks {
-  constructor() {
-    const possibleAttacks = [
-      "Poison",
-      "Aliens",
-      "Bird",
-      "Salt",
-      "Roberto(evil snail)",
-    ];
-    class Attacks {
-      constructor() {
-        const randomAttacks =
-          possibleAttacks[Math.floor(Math.random() * possibleAttacks.length)];
-      }
-    }
+  constructor(attacks) {
+    this.attacks = attacks;
+  }
+
+  randomAttacks() {
+    const shuffle = (array) => {
+      return array.sort(() => Math.random() - 0.5);
+    };
+    this.attacks = shuffle(this.attacks);
   }
 }

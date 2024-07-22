@@ -11,6 +11,8 @@
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
+        <embed src="./audio/bloopin.mp3" loop="true" autostart="true" display:
+        none>
         <h1>Kill the Snail, Save the Snail</h1>
         <br />
         <button id="start-button">Start Game</button>
@@ -30,19 +32,31 @@
       <!--this will be the game screen-->
       <div id="game-container">
         <div id="game-screen">
+          <h1 id="new-attack"></h1>
+          <div id="snail"></div>
+          <div id="combinations-box"></div>
           <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
           <div id="primary-elements">
-            <button id="element-a"></button>
-            <button id="element-b"></button>
-            <button id="element-c"></button>
+            <button id="element-a" draggable="true">Fire</button>
+            <button id="element-b" draggable="true">Water</button>
+            <button id="element-c" draggable="true">Rock</button>
           </div>
           <div id="secondary-elements">
-            <button id="element-ab"></button>
-            <button id="element-bc"></button>
-            <button id="element-ac"></button>
+            <button id="element-ab" draggable="true">Mist</button>
+            <button id="element-bc" draggable="true">Tree</button>
+            <button id="element-ac" draggable="true">Metal</button>
           </div>
           <div id="tertiary-elements">
             <!--this is where the three-element combos will go-->
+            <button id="element-aba" draggable="true">Smoke</button>
+            <button id="element-abb" draggable="true">Rain</button>
+            <button id="element-abc" draggable="true">Wet Rocks</button>
+            <button id="element-bca" draggable="true">Torch</button>
+            <button id="element-bcb" draggable="true">Antidote</button>
+            <button id="element-bcc" draggable="true">Spear</button>
+            <button id="element-aca" draggable="true">Sword</button>
+            <button id="element-acb" draggable="true">Bucket of Water</button>
+            <button id="element-acc" draggable="true">Gun</button>
           </div>
           <div id="timer-and-health-box">
             <div id="health-bar"></div>
@@ -55,7 +69,15 @@
       <!--this will be the end screen if the snail dies-->
       <div id="dead-end">
         <h1>Game Over</h1>
+        <img
+          src="./images/dead-snail.png"
+          alt="dead snail"
+          width="400px"
+          height="400px"
+        />
         <p>The Snail Died.</p>
+        <!--alternate messages, we've called PETA-->
+        <p>(you should feel bad)</p>
         <br />
         <button id="dead-restart-button">Restart Game</button>
       </div>
@@ -72,6 +94,8 @@
       </div>
     </main>
 
+    <script src="js/defence.js"></script>
+    <script src="js/attacks.js"></script>
     <script src="js/instructions.js"></script>
     <script src="js/game.js"></script>
     <script src="./js/script.js"></script>

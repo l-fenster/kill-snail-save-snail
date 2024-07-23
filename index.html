@@ -8,11 +8,7 @@
     <title>Kill the Snail, Save the Snail</title>
   </head>
   <body>
-    <audio
-      id="bloopin"
-      src="./audio/bloopin.mp3"
-      controls="loop autoplay"
-    ></audio>
+    <audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
@@ -36,11 +32,14 @@
       <div id="game-container">
         <div id="game-screen">
           <h1 id="new-attack"></h1>
-          <div id="snail"></div>
-          <div id="combinations-box"></div>
+          <div id="inline">
+            <div id="snail"></div>
+            <div id="combinations-box"></div>
+          </div>
           <div id="buttons-box">
             <button id="combine-button">Combine These Elements!</button>
             <button id="clear-button">Clear Elements</button>
+            <button id="submit-defence">Submit Defence</button>
           </div>
           <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
           <div id="primary-elements">
@@ -67,9 +66,8 @@
             </button>
             <button id="element-gun" draggable="true">Gun</button>
           </div>
-          <div id="timer-and-health-box">
-            <div id="health-bar"></div>
-            <div id="game-timer"></div>
+          <div id="timer-and-lives-box">
+            <div id="lives-box"></div>
             <div id="turn-timer"></div>
           </div>
         </div>
@@ -86,7 +84,7 @@
         />
         <p>The Snail Died.</p>
         <!--alternate messages, we've called PETA-->
-        <p>(you should feel bad)</p>
+        <p id="feel-bad-message"></p>
         <br />
         <button id="dead-restart-button">Restart Game</button>
       </div>
@@ -103,8 +101,10 @@
       </div>
     </main>
 
-    <script src="js/defence.js"></script>
+    <script src="js/livesAndTimes.js"></script>
+    <script src="js/snail.js"></script>
     <script src="js/attacks.js"></script>
+    <script src="js/defence.js"></script>
     <script src="js/instructions.js"></script>
     <script src="js/game.js"></script>
     <script src="./js/script.js"></script>

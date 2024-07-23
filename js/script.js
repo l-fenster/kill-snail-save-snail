@@ -2,6 +2,7 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const yesButton = document.getElementById("yes-button");
   const noButton = document.getElementById("no-button");
+  const submitButton = document.getElementById("submit-defence");
   const combineButton = document.getElementById("combine-button");
   const clearButton = document.getElementById("clear-button");
   const deadRestartButton = document.getElementById("dead-restart-button");
@@ -9,6 +10,15 @@ window.onload = function () {
   const combinationBox = document.getElementById("combinations-box");
 
   const possibleAttackNames = ["poison", "aliens", "birds", "salt", "Roberto"];
+
+  const snail = document.getElementById("snail");
+  const snailImage = document.createElement("img");
+  snailImage.src = "./images/basic-snail.png";
+  snailImage.style.width = "200px";
+  snailImage.style.height = "200px";
+  snail.appendChild(snailImage);
+
+  const livesBox = document.getElementById("lives-box");
 
   const elements = [
     "Fire",
@@ -55,67 +65,66 @@ window.onload = function () {
     "Rock,Tree": "Spear",
   };
 
+  const game = new Game(5);
+  const attacks = new Attacks(possibleAttackNames);
+  attacks.randomAttacks();
+  game.attacks = attacks;
+
+  const livesAndTimes = new LivesAndTimes(livesBox, game);
+  livesAndTimes.init(5);
+
+  const correctDefenceForAttack = [
+    new Defence("Gun", { attackName: "Roberto" }, game, livesAndTimes),
+    new Defence("Spear", { attackName: "birds" }, game, livesAndTimes),
+    new Defence("Metal", { attackName: "aliens" }, game, livesAndTimes),
+    new Defence("Bucket of Water", { attackName: "salt" }, game, livesAndTimes),
+    new Defence("Antidote", { attackName: "poison" }, game, livesAndTimes),
+  ];
+
   startButton.addEventListener("click", startButtonHandler);
+  yesButton.addEventListener("click", yesButtonHandler);
+  noButton.addEventListener("click", noButtonHandler);
+  deadRestartButton.addEventListener("click", restartGame);
+  liveRestartButton.addEventListener("click", restartGame);
+  combineButton.addEventListener("click", combineElements);
+  clearButton.addEventListener("click", clearCombinationBox);
 
   function startButtonHandler() {
-    game = new Game();
-    game.startIntro();
+    const newGame = new Game();
+    newGame.startIntro();
   }
 
-  yesButton.addEventListener("click", yesButtonHandler);
-
   function yesButtonHandler() {
-    instructions = new Game();
+    const instructions = new Game();
     instructions.reallyStartGame();
   }
 
-  noButton.addEventListener("click", noButtonHandler);
-
   function noButtonHandler() {
-    instructions = new Game();
+    const instructions = new Game();
     instructions.automaticEnd();
   }
-
-  deadRestartButton.addEventListener("click", function () {
-    restartGame();
-  });
-
-  liveRestartButton.addEventListener("click", function () {
-    restartGame();
-  });
 
   function restartGame() {
     location.reload();
   }
 
-  let attacks = new Attacks(possibleAttackNames);
-
-  attacks.randomAttacks();
-
-  let newAttack =
-    attacks.attacks[Math.floor(Math.random() * attacks.attacks.length)];
-
-  let newAttackDialogue = document.getElementById("new-attack");
-
-  let attackText = document.createTextNode(
-    `New day, new attack! How can you help your buddy snail against ${newAttack}?`
-  );
-  //newAttackDialogue.innerText = `New day, new attack! How can you help your buddy snail against ${newAttack}?`;
-  //newAttackDialogue.innerHTML = `New day, new attack! How can you help your buddy snail against ${newAttack}?`;
-  newAttackDialogue.appendChild(attackText);
-
-  elements.forEach((element) => {
-    const elementButton = document.getElementById(
-      `element-${element.toLowerCase().replace(/ /g, "")}`
-    );
-    if (elementButton) {
-      elementButton.addEventListener("dragstart", dragStart);
-      elementButton.addEventListener("dragend", dragEnd);
+  function combineElements() {
+    const elementsInBox = Array.from(
+      combinationBox.querySelectorAll("div")
+    ).map((div) => div.innerText);
+    if (elementsInBox.length === 2) {
+      const key = elementsInBox.join(",");
+      const result = combinations[key];
+      combinationBox.innerHTML = "";
+      const resultElement = document.createElement("div");
+      resultElement.innerText = result || "Unknown Combination";
+      combinationBox.appendChild(resultElement);
     }
-  });
+  }
 
-  combinationBox.addEventListener("dragover", dragOver);
-  combinationBox.addEventListener("drop", drop);
+  function clearCombinationBox() {
+    combinationBox.innerHTML = "";
+  }
 
   function dragStart(event) {
     event.dataTransfer.setData("text", event.target.innerText);
@@ -141,23 +150,57 @@ window.onload = function () {
     }
   }
 
-  combineButton.addEventListener("click", function () {
-    const elementsInBox = Array.from(
-      combinationBox.querySelectorAll("div")
-    ).map((div) => div.innerText);
-    if (elementsInBox.length === 2) {
-      const key = elementsInBox.join(",");
-      const result = combinations[key];
-      combinationBox.innerHTML = "";
-      const resultElement = document.createElement("div");
-      resultElement.innerText = result || "Unknown Combination";
-      combinationBox.appendChild(resultElement);
+  elements.forEach((element) => {
+    const elementButton = document.getElementById(
+      `element-${element.toLowerCase().replace(/ /g, "")}`
+    );
+    if (elementButton) {
+      elementButton.addEventListener("dragstart", dragStart);
+      elementButton.addEventListener("dragend", dragEnd);
     }
   });
 
-  clearButton.addEventListener("click", function () {
-    combinationBox.innerHTML = "";
+  combinationBox.addEventListener("dragover", dragOver);
+  combinationBox.addEventListener("drop", drop);
+
+  submitButton.addEventListener("click", function () {
+    const submittedDefence = combinationBox.textContent.trim();
+    console.log(submittedDefence);
+
+    const currentAttack = attacks.attacks[attacks.attackIndex];
+    const defence = correctDefenceForAttack.find(
+      (def) => def.attack.attackName === currentAttack
+    );
+    if (defence) {
+      // Assuming there should be a check if the defence is correct
+      console.log("Submitted defence is correct.");
+    }
+    game.moveToNextAttack();
   });
+
+  correctDefenceForAttack.forEach((def) => (def.gameInstance = game));
+
+  const deadEndMessageOptions = [
+    "(you should feel bad)",
+    "(we've already called PETA)",
+    "(you murderer...)",
+    "(his family will seek vengeance)",
+    "(you orphaned his children)",
+    "(are you proud of what you've done?)",
+    "(did you enjoy killing an innocent snail?)",
+    "(God have mercy on your soul)",
+  ];
+
+  const deadEndMessage = document.getElementById("feel-bad-message");
+  if (deadEndMessage) {
+    const feelBadMessage =
+      deadEndMessageOptions[
+        Math.floor(Math.random() * deadEndMessageOptions.length)
+      ];
+    deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
+  }
+
+  game.displayNewAttack();
 };
 
 /*

@@ -1,6 +1,7 @@
 class Attacks {
   constructor(attacks) {
     this.attacks = attacks;
+    this.attackIndex = 0;
   }
 
   randomAttacks() {

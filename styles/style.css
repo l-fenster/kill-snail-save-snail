@@ -5,8 +5,14 @@ body {
   text-align: center;
 }
 
+#inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 #bloopin {
-  display: none;
+  /*display: none;*/
 }
 
 #game-intro {
@@ -38,6 +44,7 @@ body {
   padding: 200px 0px;
   margin: 100px 100px;
   border: 2px solid black;
+  color: white;
   overflow: hidden;
   position: relative;
   background-image: url(../images/swamp.jpg);
@@ -49,6 +56,7 @@ body {
   border: 1px solid black;
   width: 200px;
   height: 200px;
+  color: black;
 }
 
 #dead-end {

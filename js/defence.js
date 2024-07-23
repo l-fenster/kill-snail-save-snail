@@ -4,31 +4,6 @@ class Defence {
     this.element2 = element2;
     this.element3 = element3;
   }
-  combineElements() {
-    //here is where we drag and drop elements to combine them
-    this.element1.addEventListener("dragstart", function (event) {
-      event.dataTransfer.setData("text/plain", "this.element1");
-      this.element1.style.backgroundColor = "green";
-    });
-
-    //function(event)????
-    this.element1.addEventListener("dragend", function (event) {
-      this.element1.style.backgroundColor = "red";
-    });
-
-    this.element2.addEventListener("dragover", function (event) {
-      event.preventDefault();
-      this.element2.style.backgroundColor = "red";
-    });
-
-    this.element2.addEventListener("drop", function (event) {
-      event.preventDefault();
-      const data = event.dataTransfer.getData("text");
-      if (data === "this.element1") {
-        this.element3.classList.add("show");
-      }
-    });
-  }
 }
 
 /*

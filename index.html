@@ -8,11 +8,14 @@
     <title>Kill the Snail, Save the Snail</title>
   </head>
   <body>
+    <audio
+      id="bloopin"
+      src="./audio/bloopin.mp3"
+      controls="loop autoplay"
+    ></audio>
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
-        <embed src="./audio/bloopin.mp3" loop="true" autostart="true" display:
-        none>
         <h1>Kill the Snail, Save the Snail</h1>
         <br />
         <button id="start-button">Start Game</button>
@@ -35,28 +38,34 @@
           <h1 id="new-attack"></h1>
           <div id="snail"></div>
           <div id="combinations-box"></div>
+          <div id="buttons-box">
+            <button id="combine-button">Combine These Elements!</button>
+            <button id="clear-button">Clear Elements</button>
+          </div>
           <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
           <div id="primary-elements">
-            <button id="element-a" draggable="true">Fire</button>
-            <button id="element-b" draggable="true">Water</button>
-            <button id="element-c" draggable="true">Rock</button>
+            <button id="element-fire" draggable="true">Fire</button>
+            <button id="element-water" draggable="true">Water</button>
+            <button id="element-rock" draggable="true">Rock</button>
           </div>
           <div id="secondary-elements">
-            <button id="element-ab" draggable="true">Mist</button>
-            <button id="element-bc" draggable="true">Tree</button>
-            <button id="element-ac" draggable="true">Metal</button>
+            <button id="element-mist" draggable="true">Mist</button>
+            <button id="element-tree" draggable="true">Tree</button>
+            <button id="element-metal" draggable="true">Metal</button>
           </div>
           <div id="tertiary-elements">
             <!--this is where the three-element combos will go-->
-            <button id="element-aba" draggable="true">Smoke</button>
-            <button id="element-abb" draggable="true">Rain</button>
-            <button id="element-abc" draggable="true">Wet Rocks</button>
-            <button id="element-bca" draggable="true">Torch</button>
-            <button id="element-bcb" draggable="true">Antidote</button>
-            <button id="element-bcc" draggable="true">Spear</button>
-            <button id="element-aca" draggable="true">Sword</button>
-            <button id="element-acb" draggable="true">Bucket of Water</button>
-            <button id="element-acc" draggable="true">Gun</button>
+            <button id="element-smoke" draggable="true">Smoke</button>
+            <button id="element-rain" draggable="true">Rain</button>
+            <button id="element-wetRocks" draggable="true">Wet Rocks</button>
+            <button id="element-torch" draggable="true">Torch</button>
+            <button id="element-antidote" draggable="true">Antidote</button>
+            <button id="element-spear" draggable="true">Spear</button>
+            <button id="element-sword" draggable="true">Sword</button>
+            <button id="element-bucketOfWater" draggable="true">
+              Bucket of Water
+            </button>
+            <button id="element-gun" draggable="true">Gun</button>
           </div>
           <div id="timer-and-health-box">
             <div id="health-bar"></div>

@@ -5,6 +5,10 @@ body {
   text-align: center;
 }
 
+#bloopin {
+  display: none;
+}
+
 #game-intro {
   align-content: center;
   padding: 200px 0px;
@@ -38,6 +42,13 @@ body {
   position: relative;
   background-image: url(../images/swamp.jpg);
   background-size: cover;
+}
+
+#combinations-box {
+  background-color: white;
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
 }
 
 #dead-end {

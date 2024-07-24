@@ -73,11 +73,12 @@ window.onload = function () {
 
   const attacks = new Attacks(possibleAttackNames);
   attacks.randomAttacks();
-  game = new Game(livesBox.childElementCount);
-  game.attacks = attacks;
 
   const livesAndTimes = new LivesAndTimes(livesBox, game);
   livesAndTimes.init(attacks.attacks.length);
+
+  game = new Game(livesBox.childElementCount, livesAndTimes);
+  game.attacks = attacks;
 
   const correctDefenceForAttack = [
     new Defence("Gun", { attackName: "Roberto" }, game, livesAndTimes),
@@ -108,6 +109,27 @@ window.onload = function () {
     instructionsPage.style.display = "none";
     deadEndPage.style.display = "block";
   }
+
+  submitButton.addEventListener("click", function () {
+    const submittedDefence = combinationBox.textContent.trim();
+
+    if (!submittedDefence) {
+      livesAndTimes.decrementLives();
+    } else {
+      const currentAttack = attacks.attacks[attacks.attackIndex];
+      const defence = correctDefenceForAttack.find(
+        (def) => def.attack.attackName === currentAttack
+      );
+      if (defence) {
+        defence.checkDefence(submittedDefence);
+      } else {
+        livesAndTimes.decrementLives();
+      }
+    }
+
+    game.moveToNextAttack();
+    clearCombinationBox();
+  });
 
   function restartGame() {
     location.reload();
@@ -167,108 +189,4 @@ window.onload = function () {
 
   combinationBox.addEventListener("dragover", dragOver);
   combinationBox.addEventListener("drop", drop);
-
-  /*submitButton.addEventListener("click", function () {
-    console.log("Submit button clicked");
-
-    const submittedDefence = combinationBox.textContent.trim();
-    console.log("Submitted Defence:", submittedDefence);
-
-    if (!submittedDefence) {
-      console.log("No defense submitted");
-      livesAndTimes.decrementLives();
-    } else {
-      const currentAttack = attacks.attacks[attacks.attackIndex];
-      const defence = correctDefenceForAttack.find(
-        (def) => def.attack.attackName === currentAttack
-      );
-      if (defence) {
-        defence.checkDefence(submittedDefence);
-        console.log("Defense check passed");
-        console.log(`attacks.attacks.length: ${attacks.attacks.length}`);
-        console.log(
-          `livesBox.childElementCount: ${livesBox.childElementCount}`
-        );
-      } else {
-        console.log("No matching defense found for current attack");
-        livesAndTimes.decrementLives();
-      }
-    }
-    game.moveToNextAttack();
-    clearCombinationBox();
-  });*/
-
-  /*submitButton.addEventListener("click", function () {
-    console.log("Submit button clicked");
-
-    const submittedDefence = combinationBox.textContent.trim();
-    console.log("Submitted Defence:", submittedDefence);
-
-    if (!submittedDefence) {
-      console.log("No defense submitted");
-      livesAndTimes.decrementLives();
-    } else {
-      const currentAttack = attacks.attacks[attacks.attackIndex];
-      const defence = correctDefenceForAttack.find(
-        (def) => def.attack.attackName === currentAttack
-      );
-      if (defence) {
-        defence.checkDefence(submittedDefence);
-        console.log("Defense check passed");
-        console.log(`attacks.attacks.length: ${attacks.attacks.length}`);
-        console.log(
-          `livesBox.childElementCount: ${livesBox.childElementCount}`
-        );
-      } else {
-        console.log("No matching defense found for current attack");
-        livesAndTimes.decrementLives();
-      }
-    }
-
-    game.moveToNextAttack();
-    clearCombinationBox();
-  });*/ //second iteration of this code
-
-  submitButton.addEventListener("click", function () {
-    const submittedDefence = combinationBox.textContent.trim();
-
-    if (!submittedDefence) {
-      livesAndTimes.decrementLives();
-    } else {
-      const currentAttack = attacks.attacks[attacks.attackIndex];
-      const defence = correctDefenceForAttack.find(
-        (def) => def.attack.attackName === currentAttack
-      );
-      if (defence) {
-        defence.checkDefence(submittedDefence);
-      } else {
-        livesAndTimes.decrementLives();
-      }
-    }
-
-    game.moveToNextAttack();
-    clearCombinationBox();
-  });
-
-  correctDefenceForAttack.forEach((def) => (def.gameInstance = game));
-
-  const deadEndMessageOptions = [
-    "(you should feel bad)",
-    "(we've already called PETA)",
-    "(you murderer...)",
-    "(his family will seek vengeance)",
-    "(you orphaned his children)",
-    "(are you proud of what you've done?)",
-    "(did you enjoy killing an innocent snail?)",
-    "(God have mercy on your soul)",
-  ];
-
-  const deadEndMessage = document.getElementById("feel-bad-message");
-  if (deadEndMessage) {
-    const feelBadMessage =
-      deadEndMessageOptions[
-        Math.floor(Math.random() * deadEndMessageOptions.length)
-      ];
-    deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
-  }
 };

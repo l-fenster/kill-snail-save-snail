@@ -11,6 +11,7 @@ window.onload = function () {
   const startScreen = document.getElementById("game-intro");
   const instructionsPage = document.getElementById("instructions-page");
   const deadEndPage = document.getElementById("dead-end");
+  const turnTime = document.getElementById("turn-timer");
 
   const possibleAttackNames = ["poison", "aliens", "birds", "salt", "Roberto"];
 
@@ -72,9 +73,8 @@ window.onload = function () {
 
   const attacks = new Attacks(possibleAttackNames);
   attacks.randomAttacks();
-  game = new Game(attacks.attacks.length);
+  game = new Game(livesBox.childElementCount);
   game.attacks = attacks;
-  //have only one version of new Game
 
   const livesAndTimes = new LivesAndTimes(livesBox, game);
   livesAndTimes.init(attacks.attacks.length);
@@ -169,7 +169,10 @@ window.onload = function () {
   combinationBox.addEventListener("drop", drop);
 
   submitButton.addEventListener("click", function () {
+    console.log("Submit button clicked");
+
     const submittedDefence = combinationBox.textContent.trim();
+    console.log("Submitted Defence:", submittedDefence);
 
     if (!submittedDefence) {
       console.log("No defense submitted");
@@ -181,14 +184,16 @@ window.onload = function () {
       );
       if (defence) {
         defence.checkDefence(submittedDefence);
-        console.log(livesBox.childElementCount);
-        console.log(attacks.attacks.length);
+        console.log("Defense check passed");
+        console.log(`attacks.attacks.length: ${attacks.attacks.length}`);
+        console.log(
+          `livesBox.childElementCount: ${livesBox.childElementCount}`
+        );
       } else {
         console.log("No matching defense found for current attack");
         livesAndTimes.decrementLives();
       }
     }
-    //game.showInjuredSnail();
     game.moveToNextAttack();
     clearCombinationBox();
   });
@@ -214,10 +219,4 @@ window.onload = function () {
       ];
     deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
   }
-
-  //game.displayNewAttack(); //see game.js
-  //maybe we can have the defence checked once instead of 5 times for each
-  //look at this after functional game:
-  //when user submit defence, check if that's what snail was expecting (if loop, island racer)
-  //then won't need multiple instances of defence
 };

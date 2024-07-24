@@ -5,14 +5,13 @@ class Defence {
     this.gameInstance = gameInstance;
     this.livesAndTimes = livesAndTimes;
   }
-
   checkDefence(submittedDefence) {
     if (this.defence === submittedDefence) {
       //this.gameInstance.moveToNextAttack();
-      console.log(true);
+      console.log("Correct defence");
     } else {
+      console.log("Incorrect defence");
       this.livesAndTimes.decrementLives();
-      console.log(false);
       /*if (this.gameInstance.lives > 0) {
         this.gameInstance.moveToNextAttack();
       }*/

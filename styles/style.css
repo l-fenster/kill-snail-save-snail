@@ -17,7 +17,10 @@ body {
 
 #game-intro {
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
+
   margin: 100px 100px;
   border: 2px solid black;
   overflow: hidden;
@@ -29,7 +32,9 @@ body {
 #instructions-page {
   display: none;
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
   margin: 100px 100px;
   border: 2px solid black;
   overflow: hidden;
@@ -41,7 +46,23 @@ body {
 #injured-snail {
   display: none;
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
+  margin: 100px 100px;
+  border: 2px solid black;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/swamp.jpg);
+  background-size: cover;
+}
+#happy-snail {
+  display: none;
+  align-content: center;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
   margin: 100px 100px;
   border: 2px solid black;
   color: white;
@@ -54,7 +75,9 @@ body {
 #game-container {
   display: none;
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
   margin: 100px 100px;
   border: 2px solid black;
   color: white;
@@ -70,7 +93,7 @@ body {
 }
 
 #combinations-box {
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   width: 160px;
   height: 110px;
   color: red;
@@ -83,7 +106,9 @@ body {
 #dead-end {
   display: none;
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
   margin: 100px 100px;
   border: 2px solid black;
   overflow: hidden;
@@ -96,7 +121,9 @@ body {
 #live-end {
   display: none;
   align-content: center;
-  padding: 200px 0px;
+  width: 1300px;
+  height: 600px;
+  /*padding: 200px 0px;*/
   margin: 100px 100px;
   border: 2px solid black;
   overflow: hidden;

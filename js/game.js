@@ -8,14 +8,13 @@ class Game {
     this.lives = lives;
     this.attacks = null; // Set this later
     this.displayCount = 0;
+    this.gameEnded = false;
   }
-
   reallyStartGame() {
     this.instructionsPage.style.display = "none";
     this.gamePage.style.display = "block";
     this.displayNewAttack();
   }
-
   showInjuredSnail() {
     this.gamePage.style.display = "none";
     this.injuredSnail.style.display = "block";
@@ -23,24 +22,26 @@ class Game {
       this.gamePage.style.display = "block";
     }, 1000);
   }
-
-  automaticEnd() {
+  endGame(isVictory) {
+    if (this.gameEnded) return; // Ensure endGame logic runs only once
+    this.gameEnded = true;
+    console.log(isVictory ? "Game won" : "Game lost");
+    // Hide all pages
     this.instructionsPage.style.display = "none";
-    this.deadEndPage.style.display = "block";
-  }
-  //maybe get rid of this and noButton
-
-  trueEnd() {
     this.gamePage.style.display = "none";
-    this.deadEndPage.style.display = "block";
+    this.injuredSnail.style.display = "none";
+    this.deadEndPage.style.display = "none";
+    this.liveEndPage.style.display = "none";
+    // Show the appropriate end page based on the outcome
+    if (isVictory) {
+      this.liveEndPage.style.display = "block";
+    } else {
+      this.deadEndPage.style.display = "block";
+    }
   }
-
-  liveEnd() {
-    this.gamePage.style.display = "none";
-    this.liveEndPage.style.display = "block";
-  }
-
   moveToNextAttack() {
+    console.log("Current attack index:", this.attacks.attackIndex);
+    console.log("Total attacks:", this.attacks.attacks.length);
     if (
       this.attacks &&
       this.attacks.attackIndex < this.attacks.attacks.length - 1
@@ -49,14 +50,9 @@ class Game {
       this.displayNewAttack();
     } else if (this.attacks.attackIndex === this.attacks.attacks.length - 1) {
       console.log("All attacks defended!");
-      if (this.lives > 0) {
-        this.liveEnd(); // Show live-end page when all attacks are done
-      } else {
-        this.trueEnd(); //show dead-end page if no lives left
-      }
+      this.endGame(true);
     }
   }
-
   displayNewAttack() {
     const attackText = `New day, new attack! How can you help your buddy snail against ${
       this.attacks.attacks[this.attacks.attackIndex]

@@ -168,7 +168,7 @@ window.onload = function () {
   combinationBox.addEventListener("dragover", dragOver);
   combinationBox.addEventListener("drop", drop);
 
-  submitButton.addEventListener("click", function () {
+  /*submitButton.addEventListener("click", function () {
     console.log("Submit button clicked");
 
     const submittedDefence = combinationBox.textContent.trim();
@@ -194,6 +194,58 @@ window.onload = function () {
         livesAndTimes.decrementLives();
       }
     }
+    game.moveToNextAttack();
+    clearCombinationBox();
+  });*/
+
+  /*submitButton.addEventListener("click", function () {
+    console.log("Submit button clicked");
+
+    const submittedDefence = combinationBox.textContent.trim();
+    console.log("Submitted Defence:", submittedDefence);
+
+    if (!submittedDefence) {
+      console.log("No defense submitted");
+      livesAndTimes.decrementLives();
+    } else {
+      const currentAttack = attacks.attacks[attacks.attackIndex];
+      const defence = correctDefenceForAttack.find(
+        (def) => def.attack.attackName === currentAttack
+      );
+      if (defence) {
+        defence.checkDefence(submittedDefence);
+        console.log("Defense check passed");
+        console.log(`attacks.attacks.length: ${attacks.attacks.length}`);
+        console.log(
+          `livesBox.childElementCount: ${livesBox.childElementCount}`
+        );
+      } else {
+        console.log("No matching defense found for current attack");
+        livesAndTimes.decrementLives();
+      }
+    }
+
+    game.moveToNextAttack();
+    clearCombinationBox();
+  });*/ //second iteration of this code
+
+  submitButton.addEventListener("click", function () {
+    const submittedDefence = combinationBox.textContent.trim();
+
+    if (!submittedDefence) {
+      livesAndTimes.decrementLives();
+    } else {
+      const currentAttack = attacks.attacks[attacks.attackIndex];
+      const defence = correctDefenceForAttack.find(
+        (def) => def.attack.attackName === currentAttack
+      );
+      if (defence) {
+        defence.checkDefence(submittedDefence);
+      } else {
+        livesAndTimes.decrementLives();
+      }
+    }
+
     game.moveToNextAttack();
     clearCombinationBox();
   });

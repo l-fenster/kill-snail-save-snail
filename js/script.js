@@ -8,6 +8,9 @@ window.onload = function () {
   const deadRestartButton = document.getElementById("dead-restart-button");
   const liveRestartButton = document.getElementById("live-restart-button");
   const combinationBox = document.getElementById("combinations-box");
+  const startScreen = document.getElementById("game-intro");
+  const instructionsPage = document.getElementById("instructions-page");
+  const deadEndPage = document.getElementById("dead-end");
 
   const possibleAttackNames = ["poison", "aliens", "birds", "salt", "Roberto"];
 
@@ -19,6 +22,8 @@ window.onload = function () {
   snail.appendChild(snailImage);
 
   const livesBox = document.getElementById("lives-box");
+
+  let game;
 
   const elements = [
     "Fire",
@@ -67,8 +72,9 @@ window.onload = function () {
 
   const attacks = new Attacks(possibleAttackNames);
   attacks.randomAttacks();
-  const game = new Game(attacks.attacks.length);
+  game = new Game(attacks.attacks.length);
   game.attacks = attacks;
+  //have only one version of new Game
 
   const livesAndTimes = new LivesAndTimes(livesBox, game);
   livesAndTimes.init(attacks.attacks.length);
@@ -90,18 +96,17 @@ window.onload = function () {
   clearButton.addEventListener("click", clearCombinationBox);
 
   function startButtonHandler() {
-    const newGame = new Game();
-    newGame.startIntro();
+    startScreen.style.display = "none";
+    instructionsPage.style.display = "block";
   }
 
   function yesButtonHandler() {
-    const instructions = new Game();
-    instructions.reallyStartGame();
+    game.reallyStartGame();
   }
 
   function noButtonHandler() {
-    const instructions = new Game();
-    instructions.automaticEnd();
+    instructionsPage.style.display = "none";
+    deadEndPage.style.display = "block";
   }
 
   function restartGame() {
@@ -176,12 +181,16 @@ window.onload = function () {
       );
       if (defence) {
         defence.checkDefence(submittedDefence);
+        console.log(livesBox.childElementCount);
+        console.log(attacks.attacks.length);
       } else {
         console.log("No matching defense found for current attack");
         livesAndTimes.decrementLives();
       }
     }
+    //game.showInjuredSnail();
     game.moveToNextAttack();
+    clearCombinationBox();
   });
 
   correctDefenceForAttack.forEach((def) => (def.gameInstance = game));
@@ -206,5 +215,9 @@ window.onload = function () {
     deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
   }
 
-  game.displayNewAttack();
+  //game.displayNewAttack(); //see game.js
+  //maybe we can have the defence checked once instead of 5 times for each
+  //look at this after functional game:
+  //when user submit defence, check if that's what snail was expecting (if loop, island racer)
+  //then won't need multiple instances of defence
 };

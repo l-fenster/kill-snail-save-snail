@@ -1,8 +1,8 @@
 class Game {
   constructor(lives) {
-    this.startScreen = document.getElementById("game-intro");
     this.instructionsPage = document.getElementById("instructions-page");
     this.gamePage = document.getElementById("game-container");
+    this.injuredSnail = document.getElementById("injured-snail");
     this.deadEndPage = document.getElementById("dead-end");
     this.liveEndPage = document.getElementById("live-end");
     this.lives = lives;
@@ -10,20 +10,25 @@ class Game {
     this.displayCount = 0;
   }
 
-  startIntro() {
-    this.startScreen.style.display = "none";
-    this.instructionsPage.style.display = "block";
-  }
-
   reallyStartGame() {
     this.instructionsPage.style.display = "none";
     this.gamePage.style.display = "block";
+    this.displayNewAttack();
+  }
+
+  showInjuredSnail() {
+    this.gamePage.style.display = "none";
+    this.injuredSnail.style.display = "block";
+    setTimeout(() => {
+      this.gamePage.style.display = "block";
+    }, 1000);
   }
 
   automaticEnd() {
     this.instructionsPage.style.display = "none";
     this.deadEndPage.style.display = "block";
   }
+  //maybe get rid of this and noButton
 
   trueEnd() {
     this.gamePage.style.display = "none";

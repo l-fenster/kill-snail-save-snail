@@ -38,6 +38,19 @@ body {
   background-size: cover;
 }
 
+#injured-snail {
+  display: none;
+  align-content: center;
+  padding: 200px 0px;
+  margin: 100px 100px;
+  border: 2px solid black;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/swamp.jpg);
+  background-size: cover;
+}
+
 #game-container {
   display: none;
   align-content: center;

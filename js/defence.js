@@ -17,6 +17,7 @@ class Defence {
         this.gameInstance.moveToNextAttack();
       }*/
     }
-    this.gameInstance.moveToNextAttack();
+    //this.gameInstance.moveToNextAttack();
+    //running twice in each attack because run when we have an attack and again on check defence, so goes 1+2, then 3+4, game end
   }
 }

@@ -17,7 +17,10 @@ class LivesAndTimes {
   }
 
   decrementLives() {
-    this.livesCounter.removeChild(this.livesCounter.lastChild);
+    if (this.livesCounter.childElementCount > 0) {
+      this.livesCounter.removeChild(this.livesCounter.lastChild);
+    }
+
     if (this.livesCounter.childElementCount === 0) {
       this.gameInstance.trueEnd();
     }

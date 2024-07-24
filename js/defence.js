@@ -8,12 +8,15 @@ class Defence {
 
   checkDefence(submittedDefence) {
     if (this.defence === submittedDefence) {
-      this.gameInstance.moveToNextAttack();
+      //this.gameInstance.moveToNextAttack();
       console.log(true);
     } else {
       this.livesAndTimes.decrementLives();
-      this.gameInstance.moveToNextAttack();
       console.log(false);
+      /*if (this.gameInstance.lives > 0) {
+        this.gameInstance.moveToNextAttack();
+      }*/
     }
+    this.gameInstance.moveToNextAttack();
   }
 }

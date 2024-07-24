@@ -65,13 +65,13 @@ window.onload = function () {
     "Rock,Tree": "Spear",
   };
 
-  const game = new Game(5);
   const attacks = new Attacks(possibleAttackNames);
   attacks.randomAttacks();
+  const game = new Game(attacks.attacks.length);
   game.attacks = attacks;
 
   const livesAndTimes = new LivesAndTimes(livesBox, game);
-  livesAndTimes.init(5);
+  livesAndTimes.init(attacks.attacks.length);
 
   const correctDefenceForAttack = [
     new Defence("Gun", { attackName: "Roberto" }, game, livesAndTimes),
@@ -165,15 +165,21 @@ window.onload = function () {
 
   submitButton.addEventListener("click", function () {
     const submittedDefence = combinationBox.textContent.trim();
-    console.log(submittedDefence);
 
-    const currentAttack = attacks.attacks[attacks.attackIndex];
-    const defence = correctDefenceForAttack.find(
-      (def) => def.attack.attackName === currentAttack
-    );
-    if (defence) {
-      // Assuming there should be a check if the defence is correct
-      console.log("Submitted defence is correct.");
+    if (!submittedDefence) {
+      console.log("No defense submitted");
+      livesAndTimes.decrementLives();
+    } else {
+      const currentAttack = attacks.attacks[attacks.attackIndex];
+      const defence = correctDefenceForAttack.find(
+        (def) => def.attack.attackName === currentAttack
+      );
+      if (defence) {
+        defence.checkDefence(submittedDefence);
+      } else {
+        console.log("No matching defense found for current attack");
+        livesAndTimes.decrementLives();
+      }
     }
     game.moveToNextAttack();
   });
@@ -202,26 +208,3 @@ window.onload = function () {
 
   game.displayNewAttack();
 };
-
-/*
-Attacks:
-1.) poison - antidote
-2.) aliens - tinfoil hat
-3.) bird - mist, gun, rock, spear
-4.) salt - bucket of water, rain
-5.) enemy snail - gun
-
-*fire + rock = metal - tinfoil hat
-*fire + water = steam/mist
-water + rock = tree
-*metal + water = bucket of water
-*metal + fire = sword
-*metal + rock = gun
-mist + water = rain
-mist + fire = smoke
-mist + rock = wet rocks
-tree + water = antidote
-tree + fire = torch
-tree + rock = spear
-
-*/

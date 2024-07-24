@@ -38,14 +38,16 @@ class Game {
   moveToNextAttack() {
     if (
       this.attacks &&
-      this.attacks.attackIndex < this.attacks.attacks.length
+      this.attacks.attackIndex < this.attacks.attacks.length - 1
     ) {
       this.attacks.attackIndex++;
-      if (this.attacks.attackIndex < this.attacks.attacks.length) {
-        this.displayNewAttack();
-      } else {
-        console.log("All attacks defended!");
+      this.displayNewAttack();
+    } else if (this.attacks.attackIndex === this.attacks.attacks.length - 1) {
+      console.log("All attacks defended!");
+      if (this.lives > 0) {
         this.liveEnd(); // Show live-end page when all attacks are done
+      } else {
+        this.trueEnd(); //show dead-end page if no lives left
       }
     }
   }

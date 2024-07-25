@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap");
-
 html,
 body {
   margin: 0;
@@ -13,7 +12,6 @@ body {
   min-height: 100vh;
   text-align: center;
 }
-
 #inline {
   padding-top: 100px;
   display: flex;
@@ -22,17 +20,14 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
-
 #snail-and-cauldron {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-
 #buttons-box {
   margin-bottom: 50px;
 }
-
 #element-fire {
   font-weight: 500;
   font-size: 16px;
@@ -55,7 +50,6 @@ body {
 #element-fire:active {
   box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
-
 #element-water {
   font-weight: 500;
   font-size: 16px;
@@ -78,7 +72,6 @@ body {
 #element-water:active {
   box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
-
 #element-rock {
   font-weight: 500;
   font-size: 16px;
@@ -101,11 +94,9 @@ body {
 #element-rock:active {
   box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
-
 #bloopin {
   display: none;
 }
-
 #game-intro {
   align-content: center;
   width: 1300px;
@@ -132,15 +123,13 @@ body {
   letter-spacing: 0.02em;
   text-align: center;
   color: #80430c;
-  text-shadow: 5px 5px 0px #95af8a; /*, 10px 10px 0px #5f874f, 15px 15px 0px #7a9b6c,
-    20px 20px 0px #95af8a, 25px 25px 0px #afc3a7, 30px 30px 0px #cad7c4;*/
+  text-shadow: 5px 5px 0px #95af8a; /*, 10px 10px 0px #5F874F, 15px 15px 0px #7A9B6C,
+    20px 20px 0px #95AF8A, 25px 25px 0px #AFC3A7, 30px 30px 0px #CAD7C4;*/
 }
-
 #game-intro-box {
   width: 750px;
   height: 200px;
 }
-
 .aqua-button {
   background-color: #c2fbd7;
   border-radius: 100px;
@@ -169,7 +158,6 @@ body {
     rgba(44, 187, 99, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
-
 #instructions-page {
   display: none;
   align-content: center;
@@ -186,30 +174,34 @@ body {
   font-size: 1.2rem;
   text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
     1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-  /*color: #80430c;
-  text-shadow: 5px 5px 0px #95af8a;*/
+  /*color: #80430C;
+  text-shadow: 5px 5px 0px #95AF8A;*/
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
-
 #initial-instructions {
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
   width: 700px;
   height: auto;
   text-align: center;
   margin: auto;
   padding: 20px;
 }
-
 /*#snail-and-bubble {
   display: flex;
   justify-content: center;
   padding: 0;
   margin-top: 0;
 }
-
 #snail-box {
 *margin-top: 130px;
   margin-right: 0;
 }*/
-
 #injured-snail {
   display: none;
   align-content: center;
@@ -226,6 +218,10 @@ body {
   position: relative;
   /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 #happy-snail {
   display: none;
@@ -240,8 +236,11 @@ body {
   position: relative;
   /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
-
 #game-container {
   display: none;
   align-content: center;
@@ -256,13 +255,15 @@ body {
   /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
   margin-top: 100px;
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
-
 #cauldron {
   width: 200px;
   height: 200px;
 }
-
 #combinations-box {
   /*border: 1px solid red;*/
   padding-top: 70px;
@@ -275,19 +276,21 @@ body {
   left: 56.5%;
   transform: translate(-50%, -50%);
 }
-
 #bubble-text {
   /*border: 1px solid red;*/
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 10;
+  font-style: normal;
   width: 160px;
   height: 110px;
   color: black;
   position: absolute;
-  top: 52%;
+  top: 54%;
   left: 54%;
   transform: translate(-50%, -50%);
   text-shadow: none;
 }
-
 /*#intro-snail {
   width: 900px;
   height: 900px;
@@ -298,7 +301,6 @@ body {
   top: 80%;
   left: 80%;
 }*/
-
 #dead-end {
   display: none;
   align-content: center;
@@ -314,15 +316,17 @@ body {
   color: white;
   font-size: 2rem;
   padding-bottom: 30px;
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
-
 #feel-bad-message {
   font-size: 1rem;
 }
 #feel-good-message {
   font-size: 1rem;
 }
-
 #live-end {
   display: none;
   align-content: center;
@@ -339,16 +343,17 @@ body {
   font-size: 2rem;
   margin-top: 100px;
   padding-bottom: 30px;
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
-
 #secondary-elements {
   visibility: hidden;
 }
-
 #tertiary-elements {
   visibility: hidden;
 }
-
 .show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;

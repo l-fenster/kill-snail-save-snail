@@ -17,7 +17,6 @@
           <button id="start-button" class="aqua-button">Start Game</button>
         </div>
       </div>
-
       <!--this will be an instructions page, shows after initial screen-->
       <div id="instructions-page">
         <audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>
@@ -57,7 +56,6 @@
           </div>
         </div>
       </div>
-
       <!--this will be the game screen-->
       <div id="game-container">
         <div id="game-screen">
@@ -99,6 +97,7 @@
           </div>
           <div id="tertiary-elements">
             <!--this is where the three-element combos will go-->
+            <!--I'd like to style these with pictures of the elements, so I've kept them-->
             <button id="element-smoke" draggable="true">Smoke</button>
             <button id="element-rain" draggable="true">Rain</button>
             <button id="element-wetRocks" draggable="true">Wet Rocks</button>
@@ -129,7 +128,7 @@
       <div id="happy-snail">
         <h2>You saved him!</h2>
         <img
-          src="./images/hurt-snail.png"
+          src="./images/happy-snail.png"
           alt="hurt snail"
           width="200px"
           height="200px"
@@ -152,12 +151,11 @@
           Restart Game
         </button>
       </div>
-
       <!--this will be the end screen if the snail lives-->
       <div id="live-end">
         <h1>You did it!!!</h1>
         <img
-          src="./images/really-happy-snail.png"
+          src="./images/happy-snail.png"
           alt="basic happy snail"
           width="300px"
           height="300px"
@@ -173,7 +171,6 @@
         </button>
       </div>
     </main>
-
     <script src="js/livesAndTimes.js"></script>
     <script src="js/snail.js"></script>
     <script src="js/attacks.js"></script>

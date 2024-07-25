@@ -11,39 +11,52 @@
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
-        <h1>Kill the Snail, Save the Snail</h1>
-        <br />
-        <button id="start-button">Start Game</button>
+        <div id="game-intro-box">
+          <h1>Kill the Snail, Save the Snail</h1>
+          <br />
+          <button id="start-button" class="aqua-button">Start Game</button>
+        </div>
       </div>
 
       <!--this will be an instructions page, shows after initial screen-->
       <div id="instructions-page">
         <audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>
         <div id="instructions">
-          <h2>Mr Snail is under attack!!!!</h2>
-          <p>
-            Combine diferent elements to build a defence system for Mr. Snail,
-            after combining them you should submit your combination and check if
-            Mr.Snail gets through another day unarmed.
-          </p>
-          <p>
-            Hint: Each defense system can be a combination of 2 or 3 elements!
-          </p>
+          <div id="initial-instructions">
+            <h2>Mr Snail is under attack!!!!</h2>
+            <p>
+              Build a defence for Mr.Snail by dragging and dropping elements
+              into the cauldron. After combining them you should submit your
+              combination and check if Mr.Snail gets through another day
+              unharmed.
+            </p>
+            <p>
+              Hint: Each defense system can be a combination of 2 or 3 elements!
+            </p>
+          </div>
           <!--at the bottom of instructions, snail asks if you want to play or not-->
-          <div id="speech-bubble">
-            <img
-              id="bubble"
-              src="./images/speech-bubble.png"
-              alt="speech bubble"
-            />
-            <div id="bubble-text">
-              <p>Do you still want to save me?</p>
-              <!--insert Snail Image-->
-              <button id="yes-button">Yes</button>
-              <button id="no-button">No</button>
+          <div id="snail-and-bubble">
+            <div id="snail-box">
+              <img
+                id="intro-snail"
+                src="./images/basic-snail.png"
+                alt="snail"
+              />
+            </div>
+            <div id="speech-bubble">
+              <img
+                id="bubble"
+                src="./images/better-speech-bubble.png"
+                alt="speech bubble"
+              />
+              <div id="bubble-text">
+                <p>Do you still want to save me?</p>
+                <!--insert Snail Image-->
+                <button id="yes-button" class="aqua-button">Yes</button>
+                <button id="no-button" class="aqua-button">No</button>
+              </div>
             </div>
           </div>
-          <img id="intro-snail" src="./images/basic-snail.png" alt="snail" />
         </div>
       </div>
 
@@ -52,16 +65,28 @@
         <div id="game-screen">
           <h1 id="new-attack"></h1>
           <div id="inline">
-            <div id="snail"></div>
-            <div id="cauldron">
-              <img id="cauldron" src="./images/cauldron.png" alt="cauldron" />
-              <div id="combinations-box"></div>
+            <div id="buttons-box">
+              <button id="combine-button" class="aqua-button">
+                Combine These Elements!
+              </button>
+              <button id="clear-button" class="aqua-button">
+                Clear Elements
+              </button>
+              <button id="submit-defence" class="aqua-button">
+                Submit Defence
+              </button>
+            </div>
+            <div id="snail-and-cauldron">
+              <div id="snail"></div>
+              <div id="cauldron">
+                <img id="cauldron" src="./images/cauldron.png" alt="cauldron" />
+                <div id="combinations-box"></div>
+              </div>
             </div>
           </div>
-          <div id="buttons-box">
-            <button id="combine-button">Combine These Elements!</button>
-            <button id="clear-button">Clear Elements</button>
-            <button id="submit-defence">Submit Defence</button>
+          <div id="timer-and-lives-box">
+            <div id="lives-box"></div>
+            <div id="turn-timer"></div>
           </div>
           <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
           <div id="primary-elements">
@@ -102,25 +127,35 @@
         <img
           src="./images/dead-snail.png"
           alt="dead snail"
-          width="400px"
-          height="400px"
+          width="200px"
+          height="200px"
         />
         <p>The Snail Died.</p>
         <!--alternate messages, we've called PETA-->
         <p id="feel-bad-message"></p>
         <br />
-        <button id="dead-restart-button">Restart Game</button>
+        <button id="dead-restart-button" class="aqua-button">
+          Restart Game
+        </button>
       </div>
 
       <!--this will be the end screen if the snail lives-->
       <div id="live-end">
         <h1>End Game</h1>
+        <img
+          src="./images/dead-snail.png"
+          alt="dead snail"
+          width="200px"
+          height="200px"
+        />
         <p>You Saved the Snail!</p>
         <div id="final-score">
           <div id="hearts-saved"></div>
         </div>
         <br />
-        <button id="live-restart-button">Restart Game</button>
+        <button id="live-restart-button" class="aqua-button">
+          Restart Game
+        </button>
       </div>
     </main>
 

@@ -1,14 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap");
+
 body {
-  background-image: url(../images/snails6.jpeg);
+  background-image: url(../images/lily-pads.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
 }
 
 #inline {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-around;*/
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#snail-and-cauldron {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+#buttons-box {
+  margin-bottom: 50px;
+}
+
+#element-fire {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, #e03713 0%, #e14321 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#element-fire:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+#element-fire:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+#element-water {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, #1c85e5 0%, #368ede 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#element-water:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+#element-water:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+#element-rock {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, #823a0e 0%, #824119 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#element-rock:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+#element-rock:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
 
 #bloopin {
@@ -20,18 +104,68 @@ body {
   width: 1300px;
   height: 600px;
   /*padding: 200px 0px;*/
-
   margin: 100px 100px;
   border: 2px solid black;
   overflow: hidden;
   position: relative;
   background-image: url(../images/swamp.jpg);
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Calligraffitti", cursive;
+  font-weight: 900;
+  font-size: 1.8rem;
+  position: absolute;
+  text-shadow: -15px 5px 20px #ced0d3;
+  /*top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #80430c;
+  text-shadow: 5px 5px 0px #95af8a; /*, 10px 10px 0px #5f874f, 15px 15px 0px #7a9b6c,
+    20px 20px 0px #95af8a, 25px 25px 0px #afc3a7, 30px 30px 0px #cad7c4;*/
+}
+
+#game-intro-box {
+  width: 750px;
+  height: 200px;
+}
+
+.aqua-button {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.aqua-button:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
 
 #instructions-page {
   display: none;
-  align-content: center;
+  /*align-content: center;*/
   width: 1300px;
   height: 600px;
   /*padding: 200px 0px;*/
@@ -41,6 +175,32 @@ body {
   position: relative;
   background-image: url(../images/swamp.jpg);
   background-size: cover;
+  color: white;
+  font-size: 1.2rem;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  /*color: #80430c;
+  text-shadow: 5px 5px 0px #95af8a;*/
+}
+
+#initial-instructions {
+  width: 700px;
+  height: auto;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+
+#snail-and-bubble {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: 0;
+}
+
+#snail-box {
+  margin-top: 130px;
+  margin-right: 0;
 }
 
 #injured-snail {
@@ -92,41 +252,47 @@ body {
   height: 200px;
 }
 
-h1 {
-  background-color: white;
-}
-
 #combinations-box {
   /*border: 1px solid red;*/
-  width: 160px;
-  height: 110px;
-  color: red;
+  padding-top: 30px;
+  width: 190px;
+  height: 130px;
+  color: white;
   position: absolute;
-  top: 34%;
-  left: 75%;
+  font-size: 1.5rem;
+  top: 65%;
+  left: 57.5%;
   transform: translate(-50%, -50%);
 }
 
 #bubble {
-  width: 220px;
-  height: 220px;
+  width: 400px;
+  height: 400px;
 }
 
 #bubble-text {
   /*border: 1px solid red;*/
   width: 160px;
   height: 110px;
-  color: red;
+  color: black;
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 70%;
+  left: 58%;
   transform: translate(-50%, -50%);
+  text-shadow: none;
 }
 
 #intro-snail {
+  padding-top: 20px;
   width: 200px;
   height: 200px;
+  display: flex;
+  align-items: flex-end;
 }
+/*#speech-bubble {
+  top: 80%;
+  left: 80%;
+}*/
 
 #dead-end {
   display: none;
@@ -141,6 +307,12 @@ h1 {
   background-image: url(../images/swamp.jpg);
   background-size: cover;
   color: white;
+  font-size: 2rem;
+  padding-bottom: 30px;
+}
+
+#feel-bad-message {
+  font-size: 1rem;
 }
 
 #live-end {
@@ -155,6 +327,9 @@ h1 {
   position: relative;
   background-image: url(../images/swamp.jpg);
   background-size: cover;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 30px;
 }
 
 #secondary-elements {

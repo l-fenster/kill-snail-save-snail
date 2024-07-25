@@ -11,7 +11,7 @@ class Game {
     this.displayCount = 0;
     this.gameEnded = false;
     this.timerInterval = null;
-    this.timeLeft = 10;
+    this.timeLeft = 20;
   }
 
   reallyStartGame() {
@@ -23,8 +23,8 @@ class Game {
 
   startRoundTimer() {
     const turnTime = document.getElementById("turn-timer");
-    this.timeLeft = 10;
-    turnTime.textContent = this.timeLeft;
+    this.timeLeft = 20;
+    turnTime.textContent = `${this.timeLeft} s`;
 
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
@@ -32,7 +32,7 @@ class Game {
 
     this.timerInterval = setInterval(() => {
       this.timeLeft--;
-      turnTime.textContent = this.timeLeft;
+      turnTime.textContent = `${this.timeLeft} s`;
 
       if (this.timeLeft < 0) {
         clearInterval(this.timerInterval);

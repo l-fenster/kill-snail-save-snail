@@ -17,16 +17,6 @@ class LivesAndTimes {
     this.livesCounter.append(...livesEls);
   }
 
-  /*decrementLives() {
-    if (this.livesCounter.childElementCount > 0) {
-      this.livesCounter.removeChild(this.livesCounter.lastChild);
-    }
-    console.log("Remaining lives:", this.livesCounter.childElementCount);
-    if (this.livesCounter.childElementCount === 0) {
-      this.gameInstance.endGame(false);
-    }
-  }*/
-
   decrementLives() {
     if (this.livesCounter.childElementCount > 0) {
       this.livesCounter.removeChild(this.livesCounter.lastChild);

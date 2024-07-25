@@ -11,91 +11,170 @@
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
-        <embed src="./audio/bloopin.mp3" loop="true" autostart="true" display:
-        none>
-        <h1>Kill the Snail, Save the Snail</h1>
-        <br />
-        <button id="start-button">Start Game</button>
+        <div id="game-intro-box">
+          <h1>Kill the Snail, Save the Snail</h1>
+          <br />
+          <button id="start-button" class="aqua-button">Start Game</button>
+        </div>
       </div>
-
       <!--this will be an instructions page, shows after initial screen-->
       <div id="instructions-page">
+        <audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>
         <div id="instructions">
+          <div id="initial-instructions">
+            <h2>Mr Snail is under attack!!!!</h2>
+            <p>
+              Build a defence for Mr.Snail by DRAGGING and DROPPING elements
+              into the cauldron. After combining them you should submit your
+              combination and check if Mr.Snail gets through another day
+              unharmed.
+            </p>
+            <p>
+              Hint: Each defense system can be a combination of 2 or 3 elements!
+            </p>
+          </div>
           <!--at the bottom of instructions, snail asks if you want to play or not-->
-          <div id="speech-bubble">
-            <button id="yes-button">Yes</button>
-            <button id="no-button">No</button>
+          <div id="snail-and-bubble">
+            <div id="snail-box">
+              <img
+                id="intro-snail"
+                src="./images/worried-snail-bubble.png"
+                alt="snail"
+                draggable="false;"
+                width="350px"
+                height="350px"
+              />
+            </div>
+            <div id="speech-bubble">
+              <div id="bubble-text">
+                <p>Do you still want to save me?</p>
+                <!--insert Snail Image-->
+                <button id="yes-button" class="aqua-button">Yes</button>
+                <button id="no-button" class="aqua-button">No</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       <!--this will be the game screen-->
       <div id="game-container">
         <div id="game-screen">
           <h1 id="new-attack"></h1>
-          <div id="snail"></div>
-          <div id="combinations-box"></div>
+          <div id="inline">
+            <div id="buttons-box">
+              <button id="combine-button" class="aqua-button">
+                Combine These Elements!
+              </button>
+              <button id="clear-button" class="aqua-button">
+                Clear Elements
+              </button>
+              <button id="submit-defence" class="aqua-button">
+                Submit Defence
+              </button>
+            </div>
+            <div id="snail-and-cauldron">
+              <div id="snail"></div>
+              <div id="cauldron">
+                <img id="cauldron" src="./images/cauldron.png" alt="cauldron" />
+                <div id="combinations-box"></div>
+              </div>
+            </div>
+          </div>
+          <div id="timer-and-lives-box">
+            <div id="lives-box"></div>
+            <div id="turn-timer"></div>
+          </div>
           <!--I still want to figure out how the element combining system will work, but I put buttons for now-->
           <div id="primary-elements">
-            <button id="element-a" draggable="true">Fire</button>
-            <button id="element-b" draggable="true">Water</button>
-            <button id="element-c" draggable="true">Rock</button>
+            <button id="element-fire" draggable="true">Fire</button>
+            <button id="element-water" draggable="true">Water</button>
+            <button id="element-rock" draggable="true">Rock</button>
           </div>
           <div id="secondary-elements">
-            <button id="element-ab" draggable="true">Mist</button>
-            <button id="element-bc" draggable="true">Tree</button>
-            <button id="element-ac" draggable="true">Metal</button>
+            <button id="element-mist" draggable="true">Mist</button>
+            <button id="element-tree" draggable="true">Tree</button>
+            <button id="element-metal" draggable="true">Metal</button>
           </div>
           <div id="tertiary-elements">
             <!--this is where the three-element combos will go-->
-            <button id="element-aba" draggable="true">Smoke</button>
-            <button id="element-abb" draggable="true">Rain</button>
-            <button id="element-abc" draggable="true">Wet Rocks</button>
-            <button id="element-bca" draggable="true">Torch</button>
-            <button id="element-bcb" draggable="true">Antidote</button>
-            <button id="element-bcc" draggable="true">Spear</button>
-            <button id="element-aca" draggable="true">Sword</button>
-            <button id="element-acb" draggable="true">Bucket of Water</button>
-            <button id="element-acc" draggable="true">Gun</button>
+            <!--I'd like to style these with pictures of the elements, so I've kept them-->
+            <button id="element-smoke" draggable="true">Smoke</button>
+            <button id="element-rain" draggable="true">Rain</button>
+            <button id="element-wetRocks" draggable="true">Wet Rocks</button>
+            <button id="element-torch" draggable="true">Torch</button>
+            <button id="element-antidote" draggable="true">Antidote</button>
+            <button id="element-spear" draggable="true">Spear</button>
+            <button id="element-sword" draggable="true">Sword</button>
+            <button id="element-bucketOfWater" draggable="true">
+              Bucket of Water
+            </button>
+            <button id="element-gun" draggable="true">Gun</button>
           </div>
-          <div id="timer-and-health-box">
-            <div id="health-bar"></div>
-            <div id="game-timer"></div>
+          <div id="timer-and-lives-box">
+            <div id="lives-box"></div>
             <div id="turn-timer"></div>
           </div>
         </div>
       </div>
-
+      <div id="injured-snail">
+        <h2>You let him get hurt!</h2>
+        <img
+          src="./images/hurt-snail.png"
+          alt="hurt snail"
+          width="500px"
+          height="500px"
+        />
+      </div>
+      <div id="happy-snail">
+        <h2>You saved him!</h2>
+        <img
+          src="./images/happy-snail.png"
+          alt="hurt snail"
+          width="200px"
+          height="200px"
+        />
+      </div>
       <!--this will be the end screen if the snail dies-->
       <div id="dead-end">
         <h1>Game Over</h1>
         <img
           src="./images/dead-snail.png"
           alt="dead snail"
-          width="400px"
-          height="400px"
+          width="300px"
+          height="300px"
         />
         <p>The Snail Died.</p>
         <!--alternate messages, we've called PETA-->
-        <p>(you should feel bad)</p>
+        <p id="feel-bad-message"></p>
         <br />
-        <button id="dead-restart-button">Restart Game</button>
+        <button id="dead-restart-button" class="aqua-button">
+          Restart Game
+        </button>
       </div>
-
       <!--this will be the end screen if the snail lives-->
       <div id="live-end">
-        <h1>End Game</h1>
+        <h1>You did it!!!</h1>
+        <img
+          src="./images/happy-snail.png"
+          alt="basic happy snail"
+          width="300px"
+          height="300px"
+        />
         <p>You Saved the Snail!</p>
+        <p id="feel-good-message"></p>
         <div id="final-score">
           <div id="hearts-saved"></div>
         </div>
         <br />
-        <button id="live-restart-button">Restart Game</button>
+        <button id="live-restart-button" class="aqua-button">
+          Restart Game
+        </button>
       </div>
     </main>
-
-    <script src="js/defence.js"></script>
+    <script src="js/livesAndTimes.js"></script>
+    <script src="js/snail.js"></script>
     <script src="js/attacks.js"></script>
+    <script src="js/defence.js"></script>
     <script src="js/instructions.js"></script>
     <script src="js/game.js"></script>
     <script src="./js/script.js"></script>

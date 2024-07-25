@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap");
 
+html,
 body {
-  background-image: url(../images/lily-pads.jpeg);
+  margin: 0;
+  height: 100%;
+}
+body {
+  background-image: url(../images/swamp.jpg);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
   text-align: center;
 }
 
@@ -105,10 +112,10 @@ body {
   height: 600px;
   /*padding: 200px 0px;*/
   margin: 100px 100px;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -165,16 +172,16 @@ body {
 
 #instructions-page {
   display: none;
-  /*align-content: center;*/
-  width: 1300px;
-  height: 600px;
+  align-content: center;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
-  background-size: cover;
+  /*background-image: url(../images/swamp.jpg);*/
+  /*background-size: cover;*/
   color: white;
   font-size: 1.2rem;
   text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
@@ -206,44 +213,44 @@ body {
 #injured-snail {
   display: none;
   align-content: center;
-  width: 1300px;
-  height: 600px;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   color: white;
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
 }
 #happy-snail {
   display: none;
   align-content: center;
-  width: 1300px;
-  height: 600px;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   color: white;
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
 }
 
 #game-container {
   display: none;
   align-content: center;
-  width: 1300px;
-  height: 600px;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   color: white;
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
 }
 
@@ -297,14 +304,14 @@ body {
 #dead-end {
   display: none;
   align-content: center;
-  width: 1300px;
-  height: 600px;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
   color: white;
   font-size: 2rem;
@@ -318,14 +325,14 @@ body {
 #live-end {
   display: none;
   align-content: center;
-  width: 1300px;
-  height: 600px;
+  /*width: 1300px;
+  height: 600px;*/
   /*padding: 200px 0px;*/
-  margin: 100px 100px;
-  border: 2px solid black;
+  /*margin: 100px 100px;*/
+  /*border: 2px solid black;*/
   overflow: hidden;
   position: relative;
-  background-image: url(../images/swamp.jpg);
+  /*background-image: url(../images/swamp.jpg);*/
   background-size: cover;
   color: white;
   font-size: 2rem;

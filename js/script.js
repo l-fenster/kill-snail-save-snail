@@ -12,7 +12,13 @@ window.onload = function () {
   const instructionsPage = document.getElementById("instructions-page");
   const deadEndPage = document.getElementById("dead-end");
 
-  const possibleAttackNames = ["poison", "aliens", "birds", "salt", "Roberto"];
+  const possibleAttackNames = [
+    "poison 🧪☣️☠️⚗️🤢",
+    "aliens 👽🛸",
+    "birds 🦅🦅",
+    "salt 🧂🧂🧂",
+    "Roberto the Gun Snail 🔫🐌",
+  ];
 
   const snail = document.getElementById("snail");
   const snailImage = document.createElement("img");
@@ -31,10 +37,10 @@ window.onload = function () {
     "Rock",
     "Mist",
     "Tree",
-    "Metal",
+    "Tin Foil",
     "Smoke",
     "Rain",
-    "Wet Rocks",
+    "Slippery Rocks",
     "Torch",
     "Antidote",
     "Spear",
@@ -46,22 +52,22 @@ window.onload = function () {
   const combinations = {
     "Fire,Water": "Mist",
     "Water,Fire": "Mist",
-    "Fire,Rock": "Metal",
-    "Rock,Fire": "Metal",
+    "Fire,Rock": "Tin Foil",
+    "Rock,Fire": "Tin Foil",
     "Water,Rock": "Tree",
     "Rock,Water": "Tree",
     "Mist,Water": "Rain",
     "Water,Mist": "Rain",
     "Mist,Fire": "Smoke",
     "Fire,Mist": "Smoke",
-    "Mist,Rock": "Wet Rocks",
-    "Rock,Mist": "Wet Rocks",
-    "Metal,Water": "Bucket of Water",
-    "Water,Metal": "Bucket of Water",
-    "Metal,Fire": "Sword",
-    "Fire,Metal": "Sword",
-    "Metal,Rock": "Gun",
-    "Rock,Metal": "Gun",
+    "Mist,Rock": "Slippery Rocks",
+    "Rock,Mist": "Slippery Rocks",
+    "Tin Foil,Water": "Bucket of Water",
+    "Water,Tin Foil": "Bucket of Water",
+    "Tin Foil,Fire": "Sword",
+    "Fire,Tin Foil": "Sword",
+    "Tin Foil,Rock": "Gun",
+    "Rock,Tin Foil": "Gun",
     "Water,Tree": "Antidote",
     "Tree,Water": "Antidote",
     "Tree,Fire": "Torch",
@@ -82,11 +88,26 @@ window.onload = function () {
   livesAndTimes.gameInstance = game;
 
   const correctDefenceForAttack = [
-    new Defence("Gun", { attackName: "Roberto" }, game, livesAndTimes),
-    new Defence("Spear", { attackName: "birds" }, game, livesAndTimes),
-    new Defence("Metal", { attackName: "aliens" }, game, livesAndTimes),
-    new Defence("Bucket of Water", { attackName: "salt" }, game, livesAndTimes),
-    new Defence("Antidote", { attackName: "poison" }, game, livesAndTimes),
+    new Defence(
+      "Gun",
+      { attackName: "Roberto the Gun Snail 🔫🐌" },
+      game,
+      livesAndTimes
+    ),
+    new Defence("Spear", { attackName: "birds 🦅🦅" }, game, livesAndTimes),
+    new Defence("Tin Foil", { attackName: "aliens 👽🛸" }, game, livesAndTimes),
+    new Defence(
+      "Bucket of Water",
+      { attackName: "salt 🧂🧂🧂" },
+      game,
+      livesAndTimes
+    ),
+    new Defence(
+      "Antidote",
+      { attackName: "poison 🧪☣️☠️⚗️🤢" },
+      game,
+      livesAndTimes
+    ),
   ];
 
   startButton.addEventListener("click", startButtonHandler);
@@ -211,5 +232,22 @@ window.onload = function () {
         Math.floor(Math.random() * deadEndMessageOptions.length)
       ];
     deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
+
+    const liveEndMessageOptions = [
+      "(you saved me!)",
+      "(thank you!!!)",
+      "(you saved my life!)",
+      "(I'm soooo happy!)",
+      "(Wanna be friends?)",
+    ];
+
+    const liveEndMessage = document.getElementById("feel-good-message");
+    if (liveEndMessage) {
+      const feelGoodMessage =
+        liveEndMessageOptions[
+          Math.floor(Math.random() * liveEndMessageOptions.length)
+        ];
+      liveEndMessage.appendChild(document.createTextNode(feelGoodMessage));
+    }
   }
 };

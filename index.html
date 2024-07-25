@@ -25,7 +25,7 @@
           <div id="initial-instructions">
             <h2>Mr Snail is under attack!!!!</h2>
             <p>
-              Build a defence for Mr.Snail by dragging and dropping elements
+              Build a defence for Mr.Snail by DRAGGING and DROPPING elements
               into the cauldron. After combining them you should submit your
               combination and check if Mr.Snail gets through another day
               unharmed.
@@ -39,8 +39,9 @@
             <div id="snail-box">
               <img
                 id="intro-snail"
-                src="./images/basic-snail.png"
+                src="./images/scared-snail.png"
                 alt="snail"
+                draggable="false;"
               />
             </div>
             <div id="speech-bubble">
@@ -119,8 +120,24 @@
           </div>
         </div>
       </div>
-      <div id="injured-snail">You hurt him!</div>
-      <div id="happy-snail">You saved him!</div>
+      <div id="injured-snail">
+        <h2>You hurt him!</h2>
+        <img
+          src="./images/hurt-snail.png"
+          alt="hurt snail"
+          width="200px"
+          height="200px"
+        />
+      </div>
+      <div id="happy-snail">
+        <h2>You saved him!</h2>
+        <img
+          src="./images/hurt-snail.png"
+          alt="hurt snail"
+          width="200px"
+          height="200px"
+        />
+      </div>
       <!--this will be the end screen if the snail dies-->
       <div id="dead-end">
         <h1>Game Over</h1>
@@ -141,14 +158,15 @@
 
       <!--this will be the end screen if the snail lives-->
       <div id="live-end">
-        <h1>End Game</h1>
+        <h1>You did it!!!</h1>
         <img
-          src="./images/basic-snail.png"
+          src="./images/happy-snail.png"
           alt="basic happy snail"
           width="200px"
           height="200px"
         />
         <p>You Saved the Snail!</p>
+        <p id="feel-good-message"></p>
         <div id="final-score">
           <div id="hearts-saved"></div>
         </div>

@@ -12,7 +12,7 @@ body {
 }
 
 #bloopin {
-  /*display: none;*/
+  display: none;
 }
 
 #game-intro {
@@ -92,15 +92,40 @@ body {
   height: 200px;
 }
 
+h1 {
+  background-color: white;
+}
+
 #combinations-box {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   width: 160px;
   height: 110px;
   color: red;
   position: absolute;
-  top: 51%;
+  top: 34%;
   left: 75%;
   transform: translate(-50%, -50%);
+}
+
+#bubble {
+  width: 220px;
+  height: 220px;
+}
+
+#bubble-text {
+  /*border: 1px solid red;*/
+  width: 160px;
+  height: 110px;
+  color: red;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#intro-snail {
+  width: 200px;
+  height: 200px;
 }
 
 #dead-end {

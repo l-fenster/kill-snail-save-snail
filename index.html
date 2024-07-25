@@ -8,7 +8,6 @@
     <title>Kill the Snail, Save the Snail</title>
   </head>
   <body>
-    <!--<audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>-->
     <main>
       <!--this will be the initial screen shown-->
       <div id="game-intro">
@@ -19,12 +18,32 @@
 
       <!--this will be an instructions page, shows after initial screen-->
       <div id="instructions-page">
+        <audio id="bloopin" src="./audio/bloopin.mp3" loop></audio>
         <div id="instructions">
+          <h2>Mr Snail is under attack!!!!</h2>
+          <p>
+            Combine diferent elements to build a defence system for Mr. Snail,
+            after combining them you should submit your combination and check if
+            Mr.Snail gets through another day unarmed.
+          </p>
+          <p>
+            Hint: Each defense system can be a combination of 2 or 3 elements!
+          </p>
           <!--at the bottom of instructions, snail asks if you want to play or not-->
           <div id="speech-bubble">
-            <button id="yes-button">Yes</button>
-            <button id="no-button">No</button>
+            <img
+              id="bubble"
+              src="./images/speech-bubble.png"
+              alt="speech bubble"
+            />
+            <div id="bubble-text">
+              <p>Do you still want to save me?</p>
+              <!--insert Snail Image-->
+              <button id="yes-button">Yes</button>
+              <button id="no-button">No</button>
+            </div>
           </div>
+          <img id="intro-snail" src="./images/basic-snail.png" alt="snail" />
         </div>
       </div>
 

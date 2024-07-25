@@ -11,7 +11,6 @@ window.onload = function () {
   const startScreen = document.getElementById("game-intro");
   const instructionsPage = document.getElementById("instructions-page");
   const deadEndPage = document.getElementById("dead-end");
-  const turnTime = document.getElementById("turn-timer");
 
   const possibleAttackNames = ["poison", "aliens", "birds", "salt", "Roberto"];
 
@@ -80,6 +79,8 @@ window.onload = function () {
   game = new Game(livesBox.childElementCount, livesAndTimes);
   game.attacks = attacks;
 
+  livesAndTimes.gameInstance = game;
+
   const correctDefenceForAttack = [
     new Defence("Gun", { attackName: "Roberto" }, game, livesAndTimes),
     new Defence("Spear", { attackName: "birds" }, game, livesAndTimes),
@@ -99,6 +100,8 @@ window.onload = function () {
   function startButtonHandler() {
     startScreen.style.display = "none";
     instructionsPage.style.display = "block";
+    const audio = document.getElementById("bloopin");
+    audio.play();
   }
 
   function yesButtonHandler() {
@@ -189,4 +192,24 @@ window.onload = function () {
 
   combinationBox.addEventListener("dragover", dragOver);
   combinationBox.addEventListener("drop", drop);
+
+  const deadEndMessageOptions = [
+    "(you should feel bad)",
+    "(we've already called PETA)",
+    "(you murderer...)",
+    "(his family will seek vengeance)",
+    "(you orphaned his children)",
+    "(are you proud of what you've done?)",
+    "(did you enjoy killing an innocent snail?)",
+    "(God have mercy on your soul)",
+  ];
+
+  const deadEndMessage = document.getElementById("feel-bad-message");
+  if (deadEndMessage) {
+    const feelBadMessage =
+      deadEndMessageOptions[
+        Math.floor(Math.random() * deadEndMessageOptions.length)
+      ];
+    deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
+  }
 };

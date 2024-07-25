@@ -232,22 +232,22 @@ window.onload = function () {
         Math.floor(Math.random() * deadEndMessageOptions.length)
       ];
     deadEndMessage.appendChild(document.createTextNode(feelBadMessage));
+  }
 
-    const liveEndMessageOptions = [
-      "(you saved me!)",
-      "(thank you!!!)",
-      "(you saved my life!)",
-      "(I'm soooo happy!)",
-      "(Wanna be friends?)",
-    ];
+  const liveEndMessageOptions = [
+    "(you saved me!)",
+    "(thank you!!!)",
+    "(you saved my life!)",
+    "(I'm soooo happy!)",
+    "(Wanna be friends?)",
+  ];
 
-    const liveEndMessage = document.getElementById("feel-good-message");
-    if (liveEndMessage) {
-      const feelGoodMessage =
-        liveEndMessageOptions[
-          Math.floor(Math.random() * liveEndMessageOptions.length)
-        ];
-      liveEndMessage.appendChild(document.createTextNode(feelGoodMessage));
-    }
+  const liveEndMessage = document.getElementById("feel-good-message");
+  if (liveEndMessage) {
+    const feelGoodMessage =
+      liveEndMessageOptions[
+        Math.floor(Math.random() * liveEndMessageOptions.length)
+      ];
+    liveEndMessage.appendChild(document.createTextNode(feelGoodMessage));
   }
 };
